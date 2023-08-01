@@ -10,36 +10,27 @@
 --DDL (Data Definition Language)
 
 
-CREATE DATABASE	Informacoes;
+CREATE DATABASE	Exercicio_1_1;
 
-USE Informacoes;
+USE Exercicio_1_1;
 
-CREATE TABLE Telefone 
+CREATE TABLE Pessoa
 (
-	IdTelefone INT PRIMARY KEY IDENTITY,
-	NumTelefone INT
+	IdPessoa INT PRIMARY KEY IDENTITY,
+	NomePessoa VARCHAR(255) NOT NULL,
+	NumCHNPessoa VARCHAR (11) NOT NULL
 );
 
 CREATE TABLE Email
 (
 	IdEmail INT PRIMARY KEY IDENTITY,
+	IdPessoa INT FOREIGN KEY REFERENCES Pessoa(IdPessoa),
 	EndEmail VARCHAR(255)
 );
 
-CREATE TABLE Cnh 
+CREATE TABLE Telefone
 (
-	IdCnh INT PRIMARY KEY IDENTITY,
-	IdPessoa INT FOREIGN KEY REFERENCES Pessoas(IdPessoa),
-	NumCnh INT
+	IdTelefone INT PRIMARY KEY IDENTITY,
+	IdPessoa INT FOREIGN KEY REFERENCES Pessoa (IdPessoa),
+	NumTelefone VARCHAR(255)
 );
-
-CREATE TABLE Pessoas
-(
-	IdPessoa INT PRIMARY KEY IDENTITY,
-	IdTelefone INT FOREIGN KEY REFERENCES Telefone(IdTelefone),
-	IdEmail INT FOREIGN KEY REFERENCES Email(IdEmail),
-	IdCnh INT FOREIGN KEY REFERENCES Cnh(IdCnh),
-	NomePessoa VARCHAR(255),
-);
-
-
