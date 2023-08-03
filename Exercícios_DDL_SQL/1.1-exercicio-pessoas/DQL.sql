@@ -9,6 +9,9 @@
 
 --DDL (Data Definition Language)
 
+DROP DATABASE Exercicio_1_1;
+DROP DATABASE Exercicio_1_2;
+DROP DATABASE Exercicio_1_3;
 
 CREATE DATABASE	Exercicio_1_1;
 
@@ -34,3 +37,7 @@ CREATE TABLE Telefone
 	IdPessoa INT FOREIGN KEY REFERENCES Pessoa (IdPessoa),
 	NumTelefone VARCHAR(255)
 );
+
+SELECT * FROM Pessoa;
+SELECT * FROM Telefone;
+SELECT * FROM Email;

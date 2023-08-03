@@ -19,6 +19,8 @@ DQL
 
 CREATE DATABASE Exercicio_1_2;
 
+DROP DATABASE Exercicio_1_2;
+
 USE Exercicio_1_2;
 
 CREATE TABLE Empresa 
@@ -51,9 +53,21 @@ CREATE TABLE Aluguel
 (
 	IdAluguel INT PRIMARY KEY IDENTITY,
 	IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCLiente),
+	--IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo),
 	NumAluguel VARCHAR(255),
 	DataAluguel DATETIME
 );
+
+DROP TABLE Aluguel;
+
+ALTER TABLE Aluguel
+ADD IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo);
+
+TRUNCATE TABLE Aluguel;
+
+ALTER TABLE Aluguel ALTER COLUMN DataAluguel DATE;
+--ALTERANDO O TIPO DE DADO DE UMA TABELA
+
 
 CREATE TABLE Veiculo
 (
